@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloWorld" class="jv.tdni.myspring.day01.HelloWorld">
+    	<property name="name" value="Spring"></property>
+    </bean>
+
+	<!-- 使用构造器注入属性值可以指定参数的位置和参数的类型，以区分重载的构造器 -->
+	<bean id="car1" class="jv.tdni.myspring.day01.Car">
+		<constructor-arg value="Audi" index="0"></constructor-arg>
+		<constructor-arg value="Shanghai" index="1"></constructor-arg>
+		<constructor-arg value="300000" index="2" type="double"></constructor-arg>
+	</bean>
+	<bean id="car2" class="jv.tdni.myspring.day01.Car">
+		<constructor-arg value="BMW" index="0"></constructor-arg>
+		<constructor-arg value="Huachen" index="1"></constructor-arg>
+		<constructor-arg value="240" index="2" type="int"></constructor-arg>
+	</bean>
+
+</beans>
