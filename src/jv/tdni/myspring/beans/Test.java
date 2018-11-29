@@ -39,6 +39,7 @@ public class Test {
 
 		Person person5 = (Person) cntx.getBean("person5");
 		System.out.println(person5);
+
 		
 	}
 	
