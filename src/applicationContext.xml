@@ -1,22 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helloWorld" class="jv.tdni.myspring.day01.HelloWorld">
-    	<property name="name" value="Spring"></property>
+    <bean id="helloWorld" class="jv.tdni.myspring.beans.HelloWorld">
+        <property name="name" value="Spring"></property>
     </bean>
 
-	<!-- 使用构造器注入属性值可以指定参数的位置和参数的类型，以区分重载的构造器 -->
-	<bean id="car1" class="jv.tdni.myspring.day01.Car">
-		<constructor-arg value="Audi" index="0"></constructor-arg>
-		<constructor-arg value="Shanghai" index="1"></constructor-arg>
-		<constructor-arg value="300000" index="2" type="double"></constructor-arg>
-	</bean>
-	<bean id="car2" class="jv.tdni.myspring.day01.Car">
-		<constructor-arg value="BMW" index="0"></constructor-arg>
-		<constructor-arg value="Huachen" index="1"></constructor-arg>
-		<constructor-arg value="240" index="2" type="int"></constructor-arg>
-	</bean>
+    <!-- 使用构造器注入属性值可以指定参数的位置和参数的类型，以区分重载的构造器 -->
+    <bean id="car1" class="jv.tdni.myspring.beans.Car">
+        <constructor-arg value="Audi" index="0"></constructor-arg>
+        <constructor-arg value="ShangHai" index="1"></constructor-arg>
+        <constructor-arg value="300000" index="2" type="double"></constructor-arg>
+    </bean>
+    <bean id="car2" class="jv.tdni.myspring.beans.Car">
+        <constructor-arg value="BMW" index="0"></constructor-arg>
+        <constructor-arg value="HuaChen" index="1"></constructor-arg>
+        <constructor-arg value="240" index="2" type="int"></constructor-arg>
+    </bean>
+    
+    <!-- 如果有特殊字符就用 <!CDATA[]> 来标记 -->
+    <!-- 属性值可以用 value 子节点来注入 -->
+    <bean id="car3" class="jv.tdni.myspring.beans.Car">
+        <constructor-arg value="BMW" index="0"></constructor-arg>
+        <constructor-arg index="1">
+            <value><![CDATA[<HuaChen>]]></value>
+        </constructor-arg>
+        <constructor-arg value="240" index="2" type="int"></constructor-arg>
+        <property name="price" value="35000"></property>
+    </bean>
+    <!-- 可以用 property 的 ref 属性或元素，建立 bean 之间的引用关系 -->
+    <bean id="person1" class="jv.tdni.myspring.beans.Person">
+        <property name="name" value="Tom"></property>
+        <property name="age" value="20"></property>
+        <property name="car" ref="car1"></property>
+    </bean>
+    <bean id="person2" class="jv.tdni.myspring.beans.Person">
+        <property name="name" value="Cherry"></property>
+        <property name="age" value="18"></property>
+        <property name="car">
+            <ref bean="car2"/>
+        </property>
+    </bean>
+    <bean id="person3" class="jv.tdni.myspring.beans.Person">
+        <property name="name" value="Cherry"></property>
+        <property name="age" value="18"></property>
+        <property name="car">
+            <ref bean="car3"/>
+        </property>
+    </bean>
 
 </beans>

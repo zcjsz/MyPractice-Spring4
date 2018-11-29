@@ -1,4 +1,4 @@
-package jv.tdni.myspring.day01;
+package jv.tdni.myspring.beans;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,6 +18,18 @@ public class Test {
 		
 		Car car2 = (Car) cntx.getBean("car2");
 		System.out.println(car2);
+		
+		Car car3 = (Car) cntx.getBean("car3");
+		System.out.println(car3);
+		Person person1 = (Person) cntx.getBean("person1");
+		System.out.println(person1);
+
+		Person person2 = (Person) cntx.getBean("person2");
+		System.out.println(person2);
+		
+		Person person3 = (Person) cntx.getBean("person3");
+		System.out.println(person3);
+		
 	}
 	
 

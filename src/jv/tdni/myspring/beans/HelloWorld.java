@@ -1,4 +1,4 @@
-package jv.tdni.myspring.day01;
+package jv.tdni.myspring.beans;
 
 public class HelloWorld {
 
