@@ -49,5 +49,18 @@
             <ref bean="car3"/>
         </property>
     </bean>
+    
+    <!-- 内部 bean，不能被外部引用，只能内部使用，不需要 bean id -->
+    <bean id="person4" class="jv.tdni.myspring.beans.Person">
+        <property name="name" value="Alex"></property>
+        <property name="age" value="30"></property>
+        <property name="car">
+            <bean class="jv.tdni.myspring.beans.Car">
+                <constructor-arg name="brand" value="Ford"></constructor-arg>
+                <constructor-arg name="crop" value="ChangAn"></constructor-arg>
+                <constructor-arg name="price" value="18000"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
 
 </beans>

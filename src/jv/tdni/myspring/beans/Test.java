@@ -30,6 +30,9 @@ public class Test {
 		Person person3 = (Person) cntx.getBean("person3");
 		System.out.println(person3);
 		
+		Person person4 = (Person) cntx.getBean("person4");
+		System.out.println(person4);
+		
 	}
 	
 
