@@ -21,6 +21,10 @@ public class Test {
 		
 		Car car3 = (Car) cntx.getBean("car3");
 		System.out.println(car3);
+		
+		Car car4 = (Car) cntx.getBean("car4");
+		System.out.println(car4);
+		
 		Person person1 = (Person) cntx.getBean("person1");
 		System.out.println(person1);
 
@@ -32,6 +36,9 @@ public class Test {
 		
 		Person person4 = (Person) cntx.getBean("person4");
 		System.out.println(person4);
+
+		Person person5 = (Person) cntx.getBean("person5");
+		System.out.println(person5);
 		
 	}
 	
