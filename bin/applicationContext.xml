@@ -105,5 +105,17 @@
         </property>
     </bean>
     
+    <!-- 使用 <map> 及 <map> 子节点 <entry> 配置成员变量 -->
+    <bean id="person7" class="jv.tdni.myspring.beans.collections.Person2">
+        <property name="name" value="Rose"></property>
+        <property name="age" value="25"></property>
+        <property name="cars">
+            <map>
+                <entry key="AA" value-ref="car1"></entry>
+                <entry key="BB" value-ref="car2"></entry>
+            </map>
+        </property>
+    </bean>
+    
     
 </beans>
