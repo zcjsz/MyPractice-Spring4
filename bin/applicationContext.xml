@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <bean id="helloWorld" class="jv.tdni.myspring.beans.HelloWorld">
         <property name="name" value="Spring"></property>
@@ -35,6 +38,9 @@
        <property name="brand" value="Benz"></property>
        <property name="crop" value="LiXing"></property>
     </bean>
+    
+<!-- ======================================================================================================== -->
+<!-- ======================================================================================================== -->
     
     <!-- 可以用 property 的 ref 属性或元素，建立 bean 之间的引用关系 -->
     <bean id="person1" class="jv.tdni.myspring.beans.Person">
@@ -117,6 +123,12 @@
         </property>
     </bean>
     
+    <bean id="person8" class="jv.tdni.myspring.beans.collections.Person">
+        <property name="name" value="Jack"></property>
+        <property name="age" value="29"></property>
+        <property name="cars" ref="cars"></property>    
+    </bean>
+    
     <!-- 配置 Properties 属性值 -->
     <!-- 使用 <props> 和 <prop> 子节点为 Properties 属性赋值 -->
     <bean id="dataSource" class="jv.tdni.myspring.beans.collections.DataSource">
@@ -130,4 +142,15 @@
         </property>
     </bean>
     
+<!-- ======================================================================================================== -->
+<!-- ======================================================================================================== -->
+    
+    <!-- 配置独立的集合 Bean，以供多个 Bean 引用。需要导入 util 命名空间 -->
+    <util:list id="cars">
+        <ref bean="car1"/>
+        <ref bean="car2"/>
+        <ref bean="car3"/>
+    </util:list>
+    
+
 </beans>

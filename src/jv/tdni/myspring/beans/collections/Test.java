@@ -9,14 +9,17 @@ public class Test {
 		
 		ApplicationContext appCtx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
+		DataSource dataSource = (DataSource) appCtx.getBean("dataSource");
+		System.out.println(dataSource);
+		
 		Person person6 = (Person) appCtx.getBean("person6");
 		System.out.println(person6);
 
 		Person2 person7 = (Person2) appCtx.getBean("person7");
 		System.out.println(person7);
-		
-		DataSource dataSource = (DataSource) appCtx.getBean("dataSource");
-		System.out.println(dataSource);
+
+		Person person8 = (Person) appCtx.getBean("person8");
+		System.out.println(person8);
 		
 	}
 	
