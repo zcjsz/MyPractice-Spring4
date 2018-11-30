@@ -20,6 +20,9 @@ public class Test {
 
 		Person person8 = (Person) appCtx.getBean("person8");
 		System.out.println(person8);
+
+		Person person9 = (Person) appCtx.getBean("person9");
+		System.out.println(person9);		
 		
 	}
 	

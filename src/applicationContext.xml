@@ -129,6 +129,10 @@
         <property name="cars" ref="cars"></property>    
     </bean>
     
+    <!-- 通过 p 命名空间为 bean 属性赋值，需要导入 p 命名空间 -->
+    <bean id="person9" class="jv.tdni.myspring.beans.collections.Person"
+            p:name="Jack2" p:age="30" p:cars-ref="cars"></bean>
+    
     <!-- 配置 Properties 属性值 -->
     <!-- 使用 <props> 和 <prop> 子节点为 Properties 属性赋值 -->
     <bean id="dataSource" class="jv.tdni.myspring.beans.collections.DataSource">
