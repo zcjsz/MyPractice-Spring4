@@ -117,5 +117,17 @@
         </property>
     </bean>
     
+    <!-- 配置 Properties 属性值 -->
+    <!-- 使用 <props> 和 <prop> 子节点为 Properties 属性赋值 -->
+    <bean id="dataSource" class="jv.tdni.myspring.beans.collections.DataSource">
+        <property name="properties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password">1234</prop>
+                <prop key="url">mysql-url</prop>
+                <prop key="driver">mysql-driver</prop>
+            </props>
+        </property>
+    </bean>
     
 </beans>

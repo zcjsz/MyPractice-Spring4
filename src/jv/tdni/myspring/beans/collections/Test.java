@@ -15,6 +15,9 @@ public class Test {
 		Person2 person7 = (Person2) appCtx.getBean("person7");
 		System.out.println(person7);
 		
+		DataSource dataSource = (DataSource) appCtx.getBean("dataSource");
+		System.out.println(dataSource);
+		
 	}
 	
 	
