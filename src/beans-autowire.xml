@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="jv.tdni.myspring.beans.autowire.Address" p:city="BeiJing" p:street="HuiLongGuan"></bean>
+
+    <bean id="car" class="jv.tdni.myspring.beans.autowire.Car" p:brand="Audi" p:price="300000"></bean>
+    
+    <!-- 定义 car2 后会导致 byType 自动装配异常，因为有两个Car类型，不知道选哪一个 -->
+    <!-- <bean id="car2" class="jv.tdni.myspring.beans.autowire.Car" p:brand="Audi" p:price="300000"></bean>  -->
+
+    <!-- 手动装配 -->
+    <bean id="person1" class="jv.tdni.myspring.beans.autowire.Person" p:name="Tom" p:address-ref="address" p:car-ref="car"></bean>
+
+    <!-- 自动装配 autowire, byName : 按照 bean 名字进行自动装配，使用setter注入。若有匹配则自动装配，没有匹配则不装配 -->
+    <bean id="person2" class="jv.tdni.myspring.beans.autowire.Person" p:name="Tom" autowire="byName"></bean>    
+
+    <!-- 自动装配 autowire, byName : 按照 bean 类型进行自动装配，使用setter注入。容器中只能有一个匹配类型的 bean 。 -->
+    <bean id="person3" class="jv.tdni.myspring.beans.autowire.Person" p:name="Tom" autowire="byType"></bean>
+
+</beans>
