@@ -15,4 +15,11 @@
     <!-- bean 的 abstract, autowire 不会被继承 -->
     <bean id="address2" parent="address1" p:street="DaZhongSi"></bean>
 
+    <bean id="car" class="jv.tdni.myspring.beans.relation.Car" p:brand="BMW" p:price="40000"></bean>
+
+    <!-- bean 配置的依赖: 使用 bean 的 depends-on 属性指定依赖关系 -->
+    <!-- person bean 的创建依赖于 car bean, car bean 会在 person bean 创建之前被创建好 -->
+    <bean id="person" class="jv.tdni.myspring.beans.relation.Person" depends-on="car"
+          p:name="Tom" p:address-ref="address2" p:car-ref="car"></bean>
+
 </beans>
