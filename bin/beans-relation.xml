@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 若某个 bean 没有 class 属性，则其必须为抽象 bean -->
+    <bean id="address" p:city="BeiJing" p:street="WuDaoKou" abstract="true"></bean>
+
+    <!-- bean 属性 abstract = true 说明这是一个抽象 bean, 容器不能实例化这个 bean, 这个 bean 只能被用来继承, 即当作一个模板 -->
+    <bean id="address1" class="jv.tdni.myspring.beans.relation.Address" abstract="true" 
+          p:city="BeiJing" p:street="WuDaoKou"></bean>
+    
+    <!-- bean 配置的继承: 使用 bean 的 parent 属性指定继承哪个 bean 的配置 -->
+    <!-- bean 的 abstract, autowire 不会被继承 -->
+    <bean id="address2" parent="address1" p:street="DaZhongSi"></bean>
+
+</beans>
